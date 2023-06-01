@@ -1,0 +1,547 @@
+{
+	"info": {
+		"_postman_id": "b0a1e732-8f4a-4de7-a477-ebb7b9402c61",
+		"name": "CRM_Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16411477"
+	},
+	"item": [
+		{
+			"name": "Companies",
+			"item": [
+				{
+					"name": "get_all_companies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/admin_dashboard/companies",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin_dashboard",
+								"companies"
+							]
+						},
+						"description": "get all companies with function index"
+					},
+					"response": []
+				},
+				{
+					"name": "get_one_company",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/admin_dashboard/companies/6",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin_dashboard",
+								"companies",
+								"6"
+							]
+						},
+						"description": "get one company with function show with id"
+					},
+					"response": []
+				},
+				{
+					"name": "store_company",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Munjz",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "job@munjz.com",
+									"type": "text"
+								},
+								{
+									"key": "logo",
+									"type": "file",
+									"src": "/C:/Users/vip/OneDrive/Desktop/download.png"
+								},
+								{
+									"key": "url",
+									"value": " https://munjz.com",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/admin_dashboard/companies/store",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin_dashboard",
+								"companies",
+								"store"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "url",
+									"value": null,
+									"disabled": true
+								}
+							]
+						},
+						"description": "store comapany in database with function store"
+					},
+					"response": []
+				},
+				{
+					"name": "update_company",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Amazon",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "amazon@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "logo",
+									"type": "file",
+									"src": "/C:/Users/vip/OneDrive/Desktop/OIP.jpg"
+								},
+								{
+									"key": "url",
+									"value": "https://www.amazon.com/",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "01236463501",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "https://www.facebook.com/",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/admin_dashboard/companies/8",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin_dashboard",
+								"companies",
+								"8"
+							]
+						},
+						"description": "update company with function update"
+					},
+					"response": []
+				},
+				{
+					"name": "delete_company",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/admin_dashboard/companies/destroy/8",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin_dashboard",
+								"companies",
+								"destroy",
+								"8"
+							]
+						},
+						"description": "delete company with function destroy"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contact_Persons",
+			"item": [
+				{
+					"name": "get_all_contact_persons",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/admin_dashboard/contacts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin_dashboard",
+								"contacts"
+							]
+						},
+						"description": "get all contact person with function index"
+					},
+					"response": []
+				},
+				{
+					"name": "get_one_contact_persons",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/admin_dashboard/contacts/3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin_dashboard",
+								"contacts",
+								"3"
+							]
+						},
+						"description": "get one contact person with id and fubnction show"
+					},
+					"response": []
+				},
+				{
+					"name": "store_contact",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "first_name",
+									"value": "Ahmed",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "Syam",
+									"type": "text"
+								},
+								{
+									"key": "company_id",
+									"value": "16",
+									"type": "text"
+								},
+								{
+									"key": "company_id",
+									"value": "8",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "ahmed@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "01234546894",
+									"type": "text"
+								},
+								{
+									"key": "url",
+									"value": "https://www.linkedin.com/in/ahmedsyam/",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/admin_dashboard/contacts/store/?first_name=Ahmed&last_name=ali&company_id=1&email=ahmed@gmail.com&phone=01223248910&url=https://www.linkedin.com/in/ahmedsyam/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin_dashboard",
+								"contacts",
+								"store",
+								""
+							],
+							"query": [
+								{
+									"key": "first_name",
+									"value": "Ahmed"
+								},
+								{
+									"key": "last_name",
+									"value": "ali"
+								},
+								{
+									"key": "company_id",
+									"value": "1"
+								},
+								{
+									"key": "email",
+									"value": "ahmed@gmail.com"
+								},
+								{
+									"key": "phone",
+									"value": "01223248910"
+								},
+								{
+									"key": "url",
+									"value": "https://www.linkedin.com/in/ahmedsyam/"
+								}
+							]
+						},
+						"description": "store contact person with function store"
+					},
+					"response": []
+				},
+				{
+					"name": "update_contact",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "first_name",
+									"value": "tamer",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "khaled",
+									"type": "text"
+								},
+								{
+									"key": "company_id",
+									"value": "16",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "tamer97@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "01235252210",
+									"type": "text"
+								},
+								{
+									"key": "url",
+									"value": "https://www.youtube.com/",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/admin_dashboard/contacts/1?&&",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin_dashboard",
+								"contacts",
+								"1"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								},
+								{
+									"key": "",
+									"value": null
+								},
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						},
+						"description": "update contact person with function update with id"
+					},
+					"response": []
+				},
+				{
+					"name": "delete_contact",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/admin_dashboard/contacts/destroy/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin_dashboard",
+								"contacts",
+								"destroy",
+								"1"
+							]
+						},
+						"description": "delete contact person with function destroy"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"admin@admin.com\",\r\n    \"password\" : \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/logout",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://127.0.0.1:8000",
+			"type": "string"
+		}
+	]
+}
