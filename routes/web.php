@@ -24,28 +24,30 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-/*
- * Admin Dashboard
+/**
+ * PROTECTED ROUTES
  */
-Route::get('/admin_dashboard', function () {
-    return view('layouts.admin.admin_dashboard');
-})->middleware(['auth'])->name('admin_dashboard');
-
 Route::group(['middleware' => ['web']], function () {
-/*
- *  CRUD For Company
- */
-Route::get('admin_dashboard/companies',[CompanyController::class,'index'])->name('companies');
-Route::post('admin_dashboard/companies/store',[CompanyController::class,'store'])->name('companies.store');
-Route::post('admin_dashboard/companies/destroy',[CompanyController::class,'destroy'])->name('companies.destroy');
-Route::post('admin_dashboard/companies/{id}',[CompanyController::class,'update'])->name('companies.update');
-/*
- * CRUD For Contact Persons
- */
-Route::get('admin_dashboard/contacts',[ContactController::class,'index'])->name('contacts');
-Route::post('admin_dashboard/contacts/store',[ContactController::class,'store'])->name('contacts.store');
-Route::post('admin_dashboard/contacts/destroy',[ContactController::class,'destroy'])->name('contacts.destroy');
-Route::post('admin_dashboard/contacts/{id}',[ContactController::class,'update'])->name('contacts.update');
-});
+    /*
+     * Admin Dashboard
+     */
+    Route::get('/admin_dashboard', function () {
+        return view('layouts.admin.admin_dashboard');
+    })->name('admin_dashboard');
+    /*
+     *  CRUD For Company
+     */
+    Route::get('admin_dashboard/companies',[CompanyController::class,'index'])->name('companies');
+    Route::post('admin_dashboard/companies/store',[CompanyController::class,'store'])->name('companies.store');
+    Route::post('admin_dashboard/companies/destroy',[CompanyController::class,'destroy'])->name('companies.destroy');
+    Route::post('admin_dashboard/companies/{id}',[CompanyController::class,'update'])->name('companies.update');
+    /*
+     * CRUD For Contact Persons
+     */
+    Route::get('admin_dashboard/contacts',[ContactController::class,'index'])->name('contacts');
+    Route::post('admin_dashboard/contacts/store',[ContactController::class,'store'])->name('contacts.store');
+    Route::post('admin_dashboard/contacts/destroy',[ContactController::class,'destroy'])->name('contacts.destroy');
+    Route::post('admin_dashboard/contacts/{id}',[ContactController::class,'update'])->name('contacts.update');
+  });
 
 require __DIR__.'/auth.php';
