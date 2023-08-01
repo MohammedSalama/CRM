@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ContactResource;
-use App\Models\Contact;
-use Illuminate\Support\Facades\Validator;
+use Crm\Contacts\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
@@ -22,9 +22,9 @@ class ContactController extends Controller
         $contacts = Contact::find($id);
         if($contacts)
         {
-            return $this->apiResponse(new ContactResource($contacts) , 'Contact Data' , 200);
+            return $this->apiResponse(new ContactResource($contacts) , 'Contacts Data' , 200);
         }
-        return $this->apiResponse(null , 'The Contact Not Found' , 404);
+        return $this->apiResponse(null , 'The Contacts Not Found' , 404);
     }
     public function store(Request $request)
     {
@@ -53,10 +53,10 @@ class ContactController extends Controller
 
         if($contacts)
         {
-            return $this->apiResponse(new ContactResource($contacts) , 'Contact Data' , 201);
+            return $this->apiResponse(new ContactResource($contacts) , 'Contacts Data' , 201);
         }
 
-        return $this->apiResponse(null , 'The Contact Not Saved' , 400);
+        return $this->apiResponse(null , 'The Contacts Not Saved' , 400);
     }
 
     public function update(Request $request, $id)
@@ -87,9 +87,9 @@ class ContactController extends Controller
 
         if($contacts)
         {
-            return $this->apiResponse(new ContactResource($contacts) , 'Contact Data' , 201);
+            return $this->apiResponse(new ContactResource($contacts) , 'Contacts Data' , 201);
         }
-        return $this->apiResponse(null , 'The Contact Not Updated' , 404);
+        return $this->apiResponse(null , 'The Contacts Not Updated' , 404);
     }
 
     public function destroy($id)
@@ -99,14 +99,14 @@ class ContactController extends Controller
 
         if(!$contacts)
         {
-            return $this->apiResponse(null,'The Contact Person Not Found',404);
+            return $this->apiResponse(null,'The Contacts Person Not Found',404);
         }
 
         $contacts->delete($id);
 
         if($contacts)
         {
-            return $this->apiResponse(null,'Contact Persons Deleted Successfully',200);
+            return $this->apiResponse(null,'Contacts Persons Deleted Successfully',200);
         }
     }
 

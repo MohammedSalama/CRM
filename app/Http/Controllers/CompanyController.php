@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Company;
 use App\Http\Requests\StoreCompanyRequest;
+use Crm\Companies\Models\Company;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
@@ -51,7 +51,7 @@ class CompanyController extends Controller
                 'logo' => $name,
                 'url' => $request->url
             ]);
-            session()->flash('Add', __('Company Data Added Successfully') );
+            session()->flash('Add', __('Companies Data Added Successfully') );
             return redirect()->back();
 
     }
@@ -59,7 +59,7 @@ class CompanyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Company  $company
+     * @param  \Crm\Companies\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
     public function show(Company $company)
@@ -70,7 +70,7 @@ class CompanyController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Company  $company
+     * @param  \Crm\Companies\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -83,7 +83,7 @@ class CompanyController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Company  $company
+     * @param  \Crm\Companies\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
     public function update(StoreCompanyRequest $request, $id)
@@ -113,14 +113,14 @@ class CompanyController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Company  $company
+     * @param  \Crm\Companies\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request)
     {
         try {
             Company::destroy($request->company_id);
-            session()->flash('Deleted', 'Data has been deleted successfully From Company');
+            session()->flash('Deleted', 'Data has been deleted successfully From Companies');
             return redirect()->back();
         }
         catch (\Exception $e) {

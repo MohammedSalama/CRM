@@ -1,4 +1,4 @@
-<!-- Edit Company -->
+<!-- Edit Companies -->
 <div class="modal fade" id="Editcompany{{$company->id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog">

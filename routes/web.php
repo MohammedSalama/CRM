@@ -1,10 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ContactController;
-use App\Models\Company;
-use App\Models\Contact;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,14 +33,14 @@ Route::group(['middleware' => ['web']], function () {
         return view('layouts.admin.admin_dashboard');
     })->name('admin_dashboard');
     /*
-     *  CRUD For Company
+     *  CRUD For Companies
      */
     Route::get('admin_dashboard/companies',[CompanyController::class,'index'])->name('companies');
     Route::post('admin_dashboard/companies/store',[CompanyController::class,'store'])->name('companies.store');
     Route::post('admin_dashboard/companies/destroy',[CompanyController::class,'destroy'])->name('companies.destroy');
     Route::post('admin_dashboard/companies/{id}',[CompanyController::class,'update'])->name('companies.update');
     /*
-     * CRUD For Contact Persons
+     * CRUD For Contacts Persons
      */
     Route::get('admin_dashboard/contacts',[ContactController::class,'index'])->name('contacts');
     Route::post('admin_dashboard/contacts/store',[ContactController::class,'store'])->name('contacts.store');

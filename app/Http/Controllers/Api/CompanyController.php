@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CompanyResource;
-use App\Models\Company;
-use Illuminate\Support\Facades\Validator;
+use Crm\Companies\Models\Company;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CompanyController extends Controller
 {
@@ -22,9 +22,9 @@ class CompanyController extends Controller
         $company =Company::find($id);
         if($company)
         {
-            return $this->apiResponse(new CompanyResource($company) , 'Company Data' , 200);
+            return $this->apiResponse(new CompanyResource($company) , 'Companies Data' , 200);
         }
-        return $this->apiResponse(null , 'The Company Not Found' , 404);
+        return $this->apiResponse(null , 'The Companies Not Found' , 404);
     }
     public function store(Request $request)
     {
@@ -54,9 +54,9 @@ class CompanyController extends Controller
 
         if($company)
         {
-            return $this->apiResponse(new CompanyResource($company) , 'Company Data' , 201);
+            return $this->apiResponse(new CompanyResource($company) , 'Companies Data' , 201);
         }
-        return $this->apiResponse(null , 'The Company Not Saved' , 404);
+        return $this->apiResponse(null , 'The Companies Not Saved' , 404);
 
     }
 
@@ -90,9 +90,9 @@ class CompanyController extends Controller
 
         if($company)
         {
-            return $this->apiResponse(new CompanyResource($company) , 'Company Data' , 201);
+            return $this->apiResponse(new CompanyResource($company) , 'Companies Data' , 201);
         }
-        return $this->apiResponse(null , 'The Company Not Saved' , 404);
+        return $this->apiResponse(null , 'The Companies Not Saved' , 404);
     }
 
     public function destroy($id)
@@ -101,14 +101,14 @@ class CompanyController extends Controller
 
         if(!$company)
         {
-            return $this->apiResponse(null,'Company Not Found',404);
+            return $this->apiResponse(null,'Companies Not Found',404);
         }
 
         $company->delete($id);
 
         if($company)
         {
-            return $this->apiResponse(null,'The Company deleted',200);
+            return $this->apiResponse(null,'The Companies deleted',200);
         }
     }
 }
