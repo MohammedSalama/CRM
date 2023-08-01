@@ -14,11 +14,19 @@ class CompanyController extends Controller
 {
     use ApiResponseTrait;
 
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
     public function index()
     {
         $company = CompanyResource::collection(Company::get());
         return $this->apiResponse($company , 'All Data About Companies' , 200);
     }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
     public function show($id)
     {
         $company =Company::find($id);
@@ -28,6 +36,11 @@ class CompanyController extends Controller
         }
         return $this->apiResponse(null , 'The Companies Not Found' , 404);
     }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(),[
@@ -62,6 +75,11 @@ class CompanyController extends Controller
 
     }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
     public function update(Request $request,$id)
     {
         $validator = Validator::make($request->all(),[
@@ -97,6 +115,10 @@ class CompanyController extends Controller
         return $this->apiResponse(null , 'The Companies Not Saved' , 404);
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response|void
+     */
     public function destroy($id)
     {
         $company = Company::find($id);

@@ -5,10 +5,11 @@ namespace Crm\Companies\Models;
 use Crm\Contacts\Models\Contact;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class Company extends Model
 {
-    use HasFactory;
+    use HasFactory , Notifiable;
     /*
      * Fillable
      */
