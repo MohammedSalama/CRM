@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace Crm\Companies\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\CompanyResource;
+use Crm\Base\ApiResponseTrait;
 use Crm\Companies\Models\Company;
+use Crm\Companies\Resources\CompanyResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use function public_path;
 
 class CompanyController extends Controller
 {
