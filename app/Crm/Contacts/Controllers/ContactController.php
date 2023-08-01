@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Crm\Contacts\Controllers;
 
-use App\Http\Requests\StoreContactRequest;
-use Crm\Companies\Models\Company;
+use App\Http\Controllers\Controller;
 use Crm\Contacts\ContactInterface;
 use Crm\Contacts\Models\Contact;
+use Crm\Contacts\Requests\StoreContactRequest;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller

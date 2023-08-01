@@ -2,7 +2,7 @@
 
 namespace Crm\Companies;
 
-use App\Http\Requests\StoreCompanyRequest;
+use Crm\Companies\Requests\StoreCompanyRequest;
 use Illuminate\Http\Request;
 
 interface CompanyInterface

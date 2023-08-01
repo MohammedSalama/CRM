@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Crm\Companies\Controllers;
 
-use App\Http\Requests\StoreCompanyRequest;
+use App\Http\Controllers\Controller;
 use Crm\Companies\CompanyInterface;
 use Crm\Companies\Models\Company;
-use Crm\Contacts\ContactInterface;
+use Crm\Companies\Requests\StoreCompanyRequest;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller

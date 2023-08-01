@@ -2,7 +2,7 @@
 
 namespace Crm\Contacts;
 
-use App\Http\Requests\StoreContactRequest;
+use Crm\Contacts\Requests\StoreContactRequest;
 use Illuminate\Http\Request;
 
 interface ContactInterface
@@ -14,5 +14,5 @@ interface ContactInterface
     public function store(Request $request);
     public function edit($id);
     public function update(StoreContactRequest $request,$id);
-    public function destroy($request);
+    public function destroy(Request $request);
 }

@@ -2,10 +2,10 @@
 
 namespace Crm\Contacts\Repository;
 
-use App\Http\Requests\StoreContactRequest;
 use Crm\Companies\Models\Company;
 use Crm\Contacts\ContactInterface;
 use Crm\Contacts\Models\Contact;
+use Crm\Contacts\Requests\StoreContactRequest;
 use Illuminate\Http\Request;
 
 class ContactRepository implements ContactInterface
@@ -38,7 +38,7 @@ class ContactRepository implements ContactInterface
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreContactRequest $request)
+    public function store(Request $request)
     {
 //        dd($request);
         try {
