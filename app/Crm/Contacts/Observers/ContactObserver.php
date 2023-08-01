@@ -18,7 +18,7 @@ class ContactObserver
     public function created(Contact $contact)
     {
         $users = User::where('id', auth()->id())->get();
-        Notification::send($users, new ContactNotification($contact->email,
+        Notification::send($users, new ContactNotification($contact->content,
                 auth()->id()
             )
         );
