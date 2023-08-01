@@ -13,11 +13,19 @@ class ContactController extends Controller
 {
     use ApiResponseTrait;
 
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
     public function index()
     {
         $contacts = ContactResource::collection(Contact::get());
         return $this->apiResponse($contacts , 'All Data About Contacts' , 200);
     }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
     public function show($id)
     {
         $contacts = Contact::find($id);
@@ -27,6 +35,11 @@ class ContactController extends Controller
         }
         return $this->apiResponse(null , 'The Contacts Not Found' , 404);
     }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(),[
@@ -60,6 +73,11 @@ class ContactController extends Controller
         return $this->apiResponse(null , 'The Contacts Not Saved' , 400);
     }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(),[
@@ -93,6 +111,10 @@ class ContactController extends Controller
         return $this->apiResponse(null , 'The Contacts Not Updated' , 404);
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response|void
+     */
     public function destroy($id)
 
     {
