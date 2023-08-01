@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace Crm\Base;
+
+use function response;
 
 trait ApiResponseTrait
 {

@@ -1,10 +1,9 @@
 <?php
 
-use App\Http\Controllers\Api\AuthController;
-use Illuminate\Http\Request;
+use Crm\Base\ApiAuth\AuthController;
+use Crm\Companies\Controllers\Api\CompanyController;
+use Crm\Contacts\Controllers\Api\ContactController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\CompanyController;
-use App\Http\Controllers\Api\ContactController;
 
 /*
 |--------------------------------------------------------------------------

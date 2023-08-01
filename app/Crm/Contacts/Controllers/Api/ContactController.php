@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace Crm\Contacts\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\ContactResource;
+use Crm\Base\ApiResponseTrait;
 use Crm\Contacts\Models\Contact;
+use Crm\Contacts\Resources\ContactResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
