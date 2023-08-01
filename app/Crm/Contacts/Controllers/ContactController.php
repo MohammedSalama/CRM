@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
+    protected $contact;
+
     /**
      * @param ContactInterface $contact
      */
