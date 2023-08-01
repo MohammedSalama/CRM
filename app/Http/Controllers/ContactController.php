@@ -4,27 +4,30 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreContactRequest;
 use Crm\Companies\Models\Company;
+use Crm\Contacts\ContactInterface;
 use Crm\Contacts\Models\Contact;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @param ContactInterface $contact
      */
-    public function index()
+    public function __construct(ContactInterface $contact)
     {
-        $contacts = Contact::all();
-        $company = Company::all();
-        return view('layouts.contacts.index',compact('contacts','company'));
+        $this->contactInterface = $contact;
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return mixed
+     */
+    public function index()
+    {
+      return $this->contactInterface->index();
+    }
+
+    /**
+     * @return void
      */
     public function create()
     {
@@ -32,36 +35,17 @@ class ContactController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param StoreContactRequest $request
+     * @return mixed
      */
     public function store(StoreContactRequest $request)
     {
-//        dd($request);
-        try {
-            Contact::create([
-                'first_name' => $request->first_name,
-                'last_name' => $request->last_name,
-                'company_id' => $request->company_id,
-                'email' => $request->email,
-                'phone' => $request->phone,
-                'url' => $request->url
-            ]);
-            session()->flash('Add', __('Contacts Persons Added Successfully') );
-            return redirect()->back();
-        }
-        catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-        }
+        return $this->contactInterface->store($request);
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \Crm\Contacts\Models\Contact  $contact
-     * @return \Illuminate\Http\Response
+     * @param Contact $contact
+     * @return void
      */
     public function show(Contact $contact)
     {
@@ -69,59 +53,30 @@ class ContactController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \Crm\Contacts\Models\Contact  $contact
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return mixed
      */
     public function edit($id)
     {
-        $contacts = Contact::findorfail($id);
-        return view ('layouts.contacts.edit',compact('contacts'));
+        return $this->contactInterface->edit($id);
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Crm\Contacts\Models\Contact  $contact
-     * @return \Illuminate\Http\Response
+     * @param StoreContactRequest $request
+     * @param $id
+     * @return mixed
      */
     public function update(StoreContactRequest $request, $id)
     {
-        $contacts = Contact::findorFail($request->id);
-        try {
-            $contacts->update([
-                'first_name' => $request ->first_name,
-                'last_name' => $request ->last_name,
-                'company_id' => $request ->company_id,
-                'email' => $request ->email,
-                'phone' => $request ->phone,
-                'url' => $request ->url
-            ]);
-            session()->flash('Edit','Updated Successfully');
-            return redirect()->back();
-        }
-        catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-        }
+       return $this->contactInterface->update($request , $id);
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \Crm\Contacts\Models\Contact  $contact
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return mixed
      */
     public function destroy(Request $request)
     {
-        try {
-            Contact::destroy($request->contact_id);
-            session()->flash('Deleted', 'Contacts Persons has been deleted successfully');
-            return redirect()->back();
-        }
-        catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-        }
+       return $this->contactInterface->destroy($request);
     }
 }

@@ -5,9 +5,8 @@ namespace Crm\Companies;
 use App\Http\Requests\StoreCompanyRequest;
 use Illuminate\Http\Request;
 
-interface Company
+interface CompanyInterface
 {
-
     /**
      * @return mixed
      */
@@ -15,5 +14,5 @@ interface Company
     public function store(Request $request);
     public function edit($id);
     public function update(StoreCompanyRequest $request,$id);
-    public function destroy(Request $request);
+    public function destroy($companyId);
 }
