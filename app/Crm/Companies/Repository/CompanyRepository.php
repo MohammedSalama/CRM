@@ -2,9 +2,9 @@
 
 namespace Crm\Companies\Repository;
 
-use App\Http\Requests\StoreCompanyRequest;
 use Crm\Companies\CompanyInterface;
 use Crm\Companies\Models\Company;
+use Crm\Companies\Requests\StoreCompanyRequest;
 use Illuminate\Http\Request;
 
 class CompanyRepository implements CompanyInterface

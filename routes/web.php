@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\CompanyController;
-use App\Http\Controllers\ContactController;
+use Crm\Companies\Controllers\CompanyController;
+use Crm\Contacts\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 /*
