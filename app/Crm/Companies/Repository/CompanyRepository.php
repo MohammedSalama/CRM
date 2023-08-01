@@ -46,7 +46,7 @@ class CompanyRepository implements CompanyInterface
         $name = "companies-".uniqid() . ".$ext";
         $logo -> move( public_path('storage/') , $name);
 
-        CompanyInterface::create([
+        Company::create([
             'name' => $request->name,
             'email' => $request->email,
             'logo' => $name,

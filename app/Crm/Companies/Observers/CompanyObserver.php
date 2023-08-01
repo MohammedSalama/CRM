@@ -18,7 +18,7 @@ class CompanyObserver
     public function created(Company $company)
     {
         $users = User::where('id', auth()->id())->get();
-        Notification::send($users, new CompanyNotification($company->email,
+        Notification::send($users, new CompanyNotification($company->content,
                 auth()->id()
             )
         );
