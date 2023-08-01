@@ -15,7 +15,7 @@ NOTE: This file contains all scripts for the actual Template.
 :: Predefined Variables
 :: Tooltip
 :: Preloader
-:: PHP Contact Form
+:: PHP Contacts Form
 :: Counter
 :: Back to top
 :: NiceScroll

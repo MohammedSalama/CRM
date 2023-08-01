@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Models;
+namespace Crm\Contacts\Models;
 
+use Crm\Companies\Models\Company;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Company extends Model
+class Contact extends Model
 {
     use HasFactory;
     /*
@@ -22,9 +23,8 @@ class Company extends Model
     /*
      * Relations
      */
-    public function contents()
+    public function company()
     {
-        return $this->hasMany(Contact::class);
+        return $this->belongsTo(Company::class);
     }
-
 }
