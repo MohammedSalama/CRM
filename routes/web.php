@@ -48,4 +48,6 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('admin_dashboard/contacts/{id}',[ContactController::class,'update'])->name('contacts.update');
   });
 
+Route::get('/firebase',[\App\Http\Controllers\FirebaseController::class,'index'])->name('firebase');
+
 require __DIR__.'/auth.php';
